@@ -1,4 +1,4 @@
-
+#include<stdlib.h>
 #include <stdio.h>
 #include <Windows.h>
 #include <conio.h>
@@ -39,3 +39,4 @@ int IsCorrect();
 void SpeedControl();
 
 void Printbarrier();
+void Ranking();
