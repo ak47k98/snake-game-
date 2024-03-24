@@ -9,6 +9,7 @@ char direction = RIGHT;
 
 int Menu()  //主菜单
 {
+	system("cls");
 	GotoXY(40, 12);
 	printf("欢迎来到贪吃蛇小游戏 ==== Ciallo~~~ ");
 	GotoXY(43, 14);
@@ -58,10 +59,11 @@ void Hide()
 
 void About()
 {
-	GotoXY(30, 12);
-	printf("==   ==");
+	system("cls");
+	GotoXY(43, 12);
+	printf("==homework from HDU==");
 	GotoXY(43, 14);
-	printf("==  ==");
+	printf("==0.1.1==");
 	GotoXY(43, 16);
 	printf("== from ak47k98 && sth ==");
 	GotoXY(43, 18);
@@ -73,6 +75,7 @@ void About()
 
 void Help()
 {
+	system("cls");
 	GotoXY(40, 12);
 	printf("w上");
 	GotoXY(40, 14);
@@ -93,6 +96,7 @@ void Help()
 
 void InitMap()   //生成随机地图
 {
+	system("cls");
 	Hide();
 	snake.snakeNode[0].x = MAP_WIDTH / 2 - 1;
 	snake.snakeNode[0].y = MAP_HEIGHT / 2 - 1;
@@ -138,11 +142,11 @@ void PrintFood1()   //生成食物一
 	while (flag)
 	{
 		flag = 0;
-		food1.x = rand() % (MAP_WIDTH - 2) + 1;
-		food1.y = rand() % (MAP_HEIGHT - 2) + 1;
+		food1.x = rand() % (MAP_WIDTH - 3);
+		food1.y = rand() % (MAP_HEIGHT - 3);
 		for (int k = 0; k <= snake.length - 1; k++)
 		{
-			if (snake.snakeNode[k].x == food1.x && snake.snakeNode[k].y == food1.y|| food1.x== barrier.x&& food1.y== barrier.y|| food1.x == food2.x&&food1.y==food2.y)
+			if (snake.snakeNode[k].x == food1.x && snake.snakeNode[k].y == food1.y|| (food1.x== barrier.x&& food1.y== barrier.y)|| (food1.x == food2.x&&food1.y==food2.y))
 			{				//保证生成的食物不会覆盖障碍物或蛇
 				flag = 1;
 				break;
@@ -159,11 +163,11 @@ void PrintFood2()  //生成食物2
 	while (flag)
 	{
 		flag = 0;
-		food2.x = rand() % (MAP_WIDTH - 2) + 1;
-		food2.y = rand() % (MAP_HEIGHT - 2) + 1;
+		food2.x = rand() % (MAP_WIDTH - 3) ;
+		food2.y = rand() % (MAP_HEIGHT - 3) ;
 		for (int k = 0; k <= snake.length - 1; k++)
 		{
-			if ((snake.snakeNode[k].x == food2.x && snake.snakeNode[k].y == food2.y )|| (food2.x == barrier.x && food2.y == barrier.y) || food1.x == food2.x && food1.y == food2.y)
+			if ((snake.snakeNode[k].x == food2.x && snake.snakeNode[k].y == food2.y )|| (food2.x == barrier.x && food2.y == barrier.y) ||(food1.x == food2.x && food1.y == food2.y))
 			{				//保证生成的食物不会覆盖障碍物或蛇
 				flag = 1;
 				break;
@@ -179,8 +183,8 @@ void Printbarrier()
 	while (flag)
 	{
 		flag = 0;
-		barrier.x = (rand()%2+food2.x+1)% MAP_WIDTH;
-		barrier.y = (rand()%2 + food2.y+1)% MAP_HEIGHT;
+		barrier.x = (rand()%2+food2.x+1)% (MAP_WIDTH-1);
+		barrier.y = (rand()%2 + food2.y+1)% (MAP_HEIGHT-1);
 		for (int k = 0; k <= snake.length - 1; k++)
 		{
 			if ((snake.snakeNode[k].x == barrier.x && snake.snakeNode[k].y == barrier.y) || (barrier.x == food1.x && barrier.y == food1.y)|| (barrier.x == food2.x && barrier.y == food2.y))
@@ -290,7 +294,7 @@ int MoveSnake()
 		else
 		{
 			GotoXY(45, 14);
-			printf("GJ !(^ _−)☆  ");
+			printf("GJ !    (^ _−)☆  ");
 			GotoXY(45, 16);
 			printf(" ∑(っ°Д°;)っ居然有: % d 分 : )",snake.length - 3);
 		}

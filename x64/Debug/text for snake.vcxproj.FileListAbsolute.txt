@@ -1,0 +1,2 @@
+D:\C DATA\text for snake\x64\Debug\text for snake.exe
+D:\C DATA\snake-game-\x64\Debug\text for snake.exe
