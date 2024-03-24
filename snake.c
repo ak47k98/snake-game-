@@ -19,6 +19,8 @@ int Menu()  //主菜单
 	GotoXY(43, 18);
 	printf("3.关于 ==== 进♂来♂坐♂坐♂");
 	GotoXY(43, 20);
+	printf("4.排名");
+	GotoXY(43, 22);
 	printf("0.退出游戏 ==== =）");
 	Hide();
 	char ch;
@@ -59,9 +61,12 @@ void Hide()
 
 void About()
 {
+<<<<<<< HEAD
 	system("cls");
 	GotoXY(43, 12);
 	printf("==homework from HDU==");
+=======
+>>>>>>> 6904c3c517da944e05cd9c3a59b76b3cdffc3e4d
 	GotoXY(43, 14);
 	printf("==0.1.1==");
 	GotoXY(43, 16);
@@ -177,7 +182,7 @@ void PrintFood2()  //生成食物2
 	GotoXY(food2.x, food2.y);
 	printf("￥");
 }
-void Printbarrier()
+void Printbarrier()  //生成障碍物
 {
 	int flag = 1;
 	while (flag)
@@ -312,6 +317,7 @@ int MoveSnake()
 
 int IsCorrect()
 {
+	int score;
 	// 检查蛇头是否撞墙
 	if (snake.snakeNode[0].x == 0 || snake.snakeNode[0].y == 0 ||
 		snake.snakeNode[0].x == MAP_WIDTH - 1 || snake.snakeNode[0].y == MAP_HEIGHT - 1)
@@ -330,6 +336,7 @@ int IsCorrect()
 		if (snake.snakeNode[0].x == snake.snakeNode[i].x && snake.snakeNode[0].y == snake.snakeNode[i].y)
 		{
 			return 0; // 游戏结束
+			score = snake.length - 3;
 		}
 	}
 	return 1; // 游戏继续
@@ -351,3 +358,15 @@ void SpeedControl()
 	default: break;
 	}
 }
+
+/*void Ranking()
+{
+	FILE* fp;
+	int ch;
+	if (!(fp = fopen("C:\\Users\sth for noth\Desktop\snake\ranking.txt","rb+")))
+	{
+		printf("error");
+		return;
+	}
+
+}*/
